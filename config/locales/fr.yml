@@ -1,0 +1,6 @@
+fr:
+  notice_unable_to_obtain_app_credentials: "Impossible d'obtenir les droits d'authentification sur le %{app}."
+  notice_domain_not_allowed: "Vous ne pouvez pas vous identifier sur le domaine %{domain}."
+  notice_access_denied: "Vous devez autoriser l'utilisation de vos données provenant du %{app}."
+  login_via_app: "Connexion via %{app}"
+  unable_create_account: "Votre compte n'a pas pu être créé."

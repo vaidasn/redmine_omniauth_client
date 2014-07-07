@@ -10,12 +10,6 @@
   padding: 0;
 }
 
-.button-login-icon {
-  float: left;
-  height: 18px;
-  padding: 1px 0px 0px 4px;
-}
-
 .button-login-text {
   line-height: 21px;
   background-image: -webkit-linear-gradient(bottom, #ddd, white);

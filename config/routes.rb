@@ -1,2 +1,2 @@
-get 'oauth_google', :to => 'redmine_oauth#oauth_google'
-get 'oauth2callback', :to => 'redmine_oauth#oauth_google_callback', :as => 'oauth_google_callback'
+get 'oauth_client', :to => 'redmine_oauth#oauth'
+get 'oauth_client_callback', :to => 'redmine_oauth#oauth_callback', :as => 'oauth_callback'
