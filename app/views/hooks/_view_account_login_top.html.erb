@@ -1,0 +1,9 @@
+<%= stylesheet_link_tag 'buttons', :plugin => 'redmine_omniauth_client' %>
+
+<% if Setting.plugin_redmine_omniauth_client['oauth_authentification'] %>
+  <%= link_to oauth_client_path(:back_url => back_url), :class=>"no-pointer" do %>
+    <%= button_tag :class => 'button-login' do %>
+      <%= content_tag :div, l(:login_via_app, :app => Setting.plugin_redmine_omniauth_client['app_name']), :class => 'button-login-text' %>
+    <% end %>
+  <% end %>
+<% end %>

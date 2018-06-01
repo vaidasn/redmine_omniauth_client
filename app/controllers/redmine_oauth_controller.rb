@@ -3,7 +3,7 @@ require 'json'
 
 class RedmineOauthController < AccountController
   def oauth
-    if Setting.plugin_redmine_omniauth_client[:oauth_authentification]
+    if Setting.plugin_redmine_omniauth_client['oauth_authentification']
       session[:back_url] = params[:back_url]
       redirect_to oauth_client.auth_code.authorize_url(:redirect_uri => oauth_callback_url)
     else
@@ -13,16 +13,16 @@ class RedmineOauthController < AccountController
 
   def oauth_callback
     if params[:error]
-      flash[:error] = l(:notice_access_denied, :app => settings[:app_name])
+      flash[:error] = l(:notice_access_denied, :app => settings['app_name'])
       redirect_to signin_path
     else
       token = oauth_client.auth_code.get_token(params[:code], :redirect_uri => oauth_callback_url)
-      result = token.get(settings[:site_url] + settings[:ws_url])
+      result = token.get(settings['site_url'] + settings['ws_url'], :params => { 'access_token' => token.token })
       info = JSON.parse(result.body)
-      if info && info[settings[:field_username]]
+      if info && info[settings['field_username']]
         try_to_login info
       else
-        flash[:error] = l(:notice_unable_to_obtain_app_credentials, :app => settings[:app_name])
+        flash[:error] = l(:notice_unable_to_obtain_app_credentials, :app => settings['app_name'])
         redirect_to signin_path
       end
     end
@@ -31,14 +31,14 @@ class RedmineOauthController < AccountController
   def try_to_login info
    params[:back_url] = session[:back_url]
    session.delete(:back_url)
-   user = User.find_by_login(info[settings[:field_username]])
+   user = User.find_by_login(info[settings['field_username']])
     if user.nil?
       # Create on the fly
       user = User.new
-      user.firstname = info[settings[:field_firstname]]
-      user.lastname = info[settings[:field_lastname]]
-      user.mail = info[settings[:field_email]]
-      user.login = info[settings[:field_username]]
+      user.firstname = info[settings['field_firstname']]
+      user.lastname = info[settings['field_lastname']]
+      user.mail = info[settings['field_email']]
+      user.login = info[settings['field_username']]
       user.random_password
       user.register
 
@@ -57,7 +57,7 @@ class RedmineOauthController < AccountController
           onthefly_creation_failed(user)
         end
       else
-        if settings[:force_account_creation]
+        if settings['force_account_creation']
           register_automatically(user) do
             onthefly_creation_failed(user)
           end
@@ -83,10 +83,10 @@ class RedmineOauthController < AccountController
   end
 
   def oauth_client
-    @client ||= OAuth2::Client.new(settings[:client_id], settings[:client_secret],
-      :site => settings[:site_url],
-      :authorize_url => settings[:auth_url],
-      :token_url => settings[:token_url])
+    @client ||= OAuth2::Client.new(settings['client_id'], settings['client_secret'],
+      :site => settings['site_url'],
+      :authorize_url => settings['auth_url'],
+      :token_url => settings['token_url'])
   end
 
   def settings
