@@ -17,7 +17,7 @@ class RedmineOauthController < AccountController
       redirect_to signin_path
     else
       token = oauth_client.auth_code.get_token(params[:code], :redirect_uri => oauth_callback_url)
-      result = token.get(settings['site_url'] + settings['ws_url'], :params => { 'access_token' => token.token })
+      result = token.get(settings['site_url'] + settings['ws_url'])
       info = JSON.parse(result.body)
       if info && info[settings['field_username']]
         try_to_login info
