@@ -37,6 +37,11 @@ class RedmineOauthController < AccountController
       user = User.new
       user.firstname = info[settings['field_firstname']]
       user.lastname = info[settings['field_lastname']]
+      derivedFirstname, derivedLastname = info[settings['field_fullname']].split(' ') unless info[settings['field_fullname']].nil?
+      user.firstname = derivedFirstname if user.firstname.nil?
+      user.lastname = derivedLastname if user.lastname.nil?
+      user.firstname = '**Missing first name**' if user.firstname.nil?
+      user.lastname = '**Missing last name**' if user.lastname.nil?
       user.mail = info[settings['field_email']]
       user.login = info[settings['field_username']]
       user.random_password
