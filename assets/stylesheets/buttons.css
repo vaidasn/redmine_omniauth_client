@@ -14,6 +14,13 @@
   height: auto !important;
 }
 
+.button-login-icon {
+  float: left;
+  height: 32px;
+  width: 32px;
+  padding: 0px 4px 0px 1px;
+}
+
 .button-login-text {
   line-height: 32px;
   font-size: 12px;

@@ -4,6 +4,9 @@
   <div class="button-container">
     <%= link_to oauth_client_path(:back_url => back_url), :class=>"button-link" do %>
       <%= button_tag :class => 'button-login' do %>
+        <% if Setting.plugin_redmine_omniauth_client[:site_icon] %>
+          <%= image_tag(Setting.plugin_redmine_omniauth_client[:site_icon], :class => 'button-login-icon', :alt => l(:login_via_app, :app => Setting.plugin_redmine_omniauth_client[:app_name])) %>
+        <% end %>
         <%= content_tag :div, l(:login_via_app, :app => Setting.plugin_redmine_omniauth_client[:app_name]), :class => 'button-login-text' %>
       <% end %>
     <% end %>

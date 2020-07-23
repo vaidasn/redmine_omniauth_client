@@ -1,46 +1,50 @@
 <p>
   <label>Application Name:</label>
-  <%= text_field_tag 'settings[app_name]', @settings['app_name'] %>
+  <%= text_field_tag 'settings[app_name]', @settings['app_name'], :size=>30 %>
 </p>
 <p>
   <label>Site URL:</label>
-  <%= text_field_tag 'settings[site_url]', @settings['site_url'] %>
+  <%= text_field_tag 'settings[site_url]', @settings['site_url'], :size=>60 %>
+</p>
+<p>
+  <label>Site Icon URL:</label>
+  <%= text_field_tag 'settings[site_icon]', @settings['site_icon'], :size=>60 %>
 </p>
 <p>
   <label>Authorization URL:</label>
-  <%= text_field_tag 'settings[auth_url]', @settings['auth_url'] %>
+  <%= text_field_tag 'settings[auth_url]', @settings['auth_url'], :size=>60 %>
 </p>
 <p>
   <label>Token URL:</label>
-  <%= text_field_tag 'settings[token_url]', @settings['token_url'] %>
+  <%= text_field_tag 'settings[token_url]', @settings['token_url'], :size=>60 %>
 </p>
 <p>
   <label>Webservice URL:</label>
-  <%= text_field_tag 'settings[ws_url]', @settings['ws_url'] %>
+  <%= text_field_tag 'settings[ws_url]', @settings['ws_url'], :size=>30 %>
 </p>
 <p>
   <label>Client ID:</label>
-  <%= text_field_tag 'settings[client_id]', @settings['client_id'] %>
+  <%= text_field_tag 'settings[client_id]', @settings['client_id'], :size=>60 %>
 </p>
 <p>
   <label>Client Secret:</label>
-  <%= text_field_tag 'settings[client_secret]', @settings['client_secret'] %>
+  <%= text_field_tag 'settings[client_secret]', @settings['client_secret'], :size=>60 %>
 </p>
 <p>
   <label>Username field:</label>
-  <%= text_field_tag 'settings[field_username]', @settings['field_username'] %>
+  <%= text_field_tag 'settings[field_username]', @settings['field_username'], :size=>20 %>
 </p>
 <p>
   <label>Mail field:</label>
-  <%= text_field_tag 'settings[field_email]', @settings['field_email'] %>
+  <%= text_field_tag 'settings[field_email]', @settings['field_email'], :size=>20 %>
 </p>
 <p>
   <label>First name field:</label>
-  <%= text_field_tag 'settings[field_firstname]', @settings['field_firstname'] %>
+  <%= text_field_tag 'settings[field_firstname]', @settings['field_firstname'], :size=>20 %>
 </p>
 <p>
   <label>Last name field:</label>
-  <%= text_field_tag 'settings[field_lastname]', @settings['field_lastname'] %>
+  <%= text_field_tag 'settings[field_lastname]', @settings['field_lastname'], :size=>20 %>
 </p>
 <p>
   <label>Force account creation :</label>
