@@ -9,6 +9,9 @@
         <% end %>
         <%= content_tag :div, l(:login_via_app, :app => Setting.plugin_redmine_omniauth_client[:app_name]), :class => 'button-login-text' %>
       <% end %>
+      <% if Setting.plugin_redmine_omniauth_client[:hide_redmine_login] %>
+        <%= javascript_tag "$('#login-form').css('display', 'none');" %>
+      <% end %>
     <% end %>
   </div>
 <% end %>

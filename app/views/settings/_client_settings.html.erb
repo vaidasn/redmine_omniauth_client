@@ -51,6 +51,10 @@
   <%= check_box_tag "settings[force_account_creation]", true, @settings['force_account_creation'] %>
 </p>
 <p>
+  <label>Hide Redmine Login:</label>
+  <%= check_box_tag "settings[hide_redmine_login]", true, @settings['hide_redmine_login'] %>
+</p>
+<p>
   <label>Enable OAuth authentification:</label>
   <%= check_box_tag "settings[oauth_authentification]", true, @settings['oauth_authentification'] %>
 </p>
